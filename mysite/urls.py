@@ -16,9 +16,27 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
-from ASDQ.views import run_view
+from . import views
+from ASDQ.views import (
+    run_view,
+    SignUpView,
+    UserUpdateView,
+    UserDeleteView,
+    accountview,
+    RunSubmission,
+    RunConfirmation,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', run_view, name='home'),
+    path('signup/', SignUpView.as_view(), name='signup'),
+    path('login',),
+    path('change', UserUpdateView.as_view(), name='change'),
+    path('confirm', RunConfirmation.as_view(), name='confirm'),
+    path('forgot',),
+    path('submit', RunSubmission.as_view(), name='submit'),
+    path('user/', views.accountView, name='account'),
+    path('delete', UserDeleteView.as_view(), name='delete'),
+
 ]
