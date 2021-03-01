@@ -1,0 +1,33 @@
+{% block content %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>ASDQ</title>
+</head>
+<body style="background-color:powderblue;">
+    <form action='actionUrl' method='GET'>
+        <button type='submit' style="float: right;"> Login</button>
+    </form>
+    <center><img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png" alt="My image"></center>
+<h1>Recent Submissions</h1>
+ <table border = "1" style="width:100%">
+  <tr>
+    <th>User</th>
+    <th>Time</th>
+    <th>Game</th>
+    <th>Platform</th>
+    <th>Date</th>
+  </tr>
+     {% for run in run_list %}
+  <tr>
+    <td><center><h3>{{run.user}}</h3></center></td>
+    <td><center><h3>{{run.time}}</h3></center></td>
+    <td><center><h3>{{run.game_ID}}</h3></center></td>
+    <td><center><h3>{{run.game_ID.platform}}</h3></center></td>
+    <td><center><h3>{{run.date}}</h3></center></td>
+  </tr>
+     {% endfor %}
+</table>
+</html>
+{% endblock %}

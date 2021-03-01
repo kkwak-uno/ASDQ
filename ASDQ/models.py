@@ -32,7 +32,7 @@ class Run(models.Model):
     date = models.DateField(blank=True, null=True)
     time = models.TimeField(blank=True, null=True)
     status = models.CharField(max_length=255, blank=False, null=False, default='')
-    game_ID = models.ForeignKey("Game", on_delete=models.CASCADE, related_name='ava.gameid+')
+    game_ID = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='ava.gameid+')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
