@@ -3,14 +3,15 @@ from django.db import models
 from django.utils import timezone
 import uuid
 from django.contrib.auth.models import User
-
+from django_countries.fields import CountryField
 
 class Users(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    country = models.CharField(max_length=255, blank=False, null=False, default='')
+    country = CountryField()
     discord = models.CharField(max_length=255, blank=False, null=False, default='')
     twitter = models.CharField(max_length=255, blank=False, null=False, default='')
     twitch = models.CharField(max_length=255, blank=False, null=False, default='')
+
 
 class Game(models.Model):
     game_ID = models.UUIDField(primary_key=True, default=uuid.uuid4, blank=False)
